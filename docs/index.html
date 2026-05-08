@@ -13,6 +13,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;backgrou
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .mini{background:#020617;border:1px solid #1e293b;border-radius:14px;padding:16px}
 pre{background:#020617;border-radius:12px;padding:16px;overflow-x:auto}
+input,select,textarea{box-sizing:border-box;border-radius:8px;border:1px solid #334155;background:#020617;color:#e5e7eb;padding:10px}
+button{background:#1d4ed8;color:white;border:0;border-radius:10px;padding:12px 18px;font-weight:700}
 a{color:#93c5fd}
 .warning{background:#3f1d1d;border:1px solid #7f1d1d;color:#fecaca;padding:16px;border-radius:14px}
 </style>
@@ -24,9 +26,7 @@ a{color:#93c5fd}
 <span class="badge">REMEDA</span>
 <span class="badge">Stage326</span>
 <h1>Vulnerability Evidence Intake + Verifiable Audit Submission</h1>
-<p>
-Stage326 builds on Stage320 and Stage325. It adds AI vulnerability evidence intake before QSP decision.
-</p>
+<p>Stage326 builds on Stage320, Stage321, Stage322, Stage323, and Stage325. It adds AI vulnerability evidence intake before QSP decision.</p>
 <div class="grid">
 <div class="mini"><strong>Decision</strong><br><br>ACCEPT</div>
 <div class="mini"><strong>Trust Score</strong><br><br>0.96</div>
@@ -37,50 +37,14 @@ Stage326 builds on Stage320 and Stage325. It adds AI vulnerability evidence inta
 
 <div class="card">
 <h2>Stage Evolution</h2>
-<p>
-Stage326 is not a standalone page. It is built on the accumulated verification stack from Stage320 to Stage325.
-</p>
-
 <div class="grid">
-
-<div class="mini">
-<strong>Stage320</strong><br><br>
-Proof URL Viewer<br>
-AI verification becomes a public proof URL.
+<div class="mini"><strong>Stage320</strong><br><br>Proof URL Viewer<br>AI verification becomes a public proof URL.</div>
+<div class="mini"><strong>Stage321</strong><br><br>Signed Proof<br>Proof JSON is protected with a detached signature.</div>
+<div class="mini"><strong>Stage322</strong><br><br>Audit History Chain<br>Proofs are connected into a tamper-evident history.</div>
+<div class="mini"><strong>Stage323</strong><br><br>Hardware-backed Signature<br>Issuer assurance is strengthened with YubiKey signing.</div>
+<div class="mini"><strong>Stage325</strong><br><br>Verifiable Audit Report Export<br>JSON, HTML, PDF, and verify text become a submission package.</div>
+<div class="mini"><strong>Stage326</strong><br><br>Vulnerability Evidence Intake<br>AI claims are bound to reproduction evidence before QSP decision.</div>
 </div>
-
-<div class="mini">
-<strong>Stage321</strong><br><br>
-Signed Proof<br>
-Proof JSON is protected with a detached signature.
-</div>
-
-<div class="mini">
-<strong>Stage322</strong><br><br>
-Audit History Chain<br>
-Proofs are connected into a tamper-evident history.
-</div>
-
-<div class="mini">
-<strong>Stage323</strong><br><br>
-Hardware-backed Signature<br>
-Issuer assurance is strengthened with YubiKey signing.
-</div>
-
-<div class="mini">
-<strong>Stage325</strong><br><br>
-Verifiable Audit Report Export<br>
-JSON, HTML, PDF, and verify text become a submission package.
-</div>
-
-<div class="mini">
-<strong>Stage326</strong><br><br>
-Vulnerability Evidence Intake<br>
-AI claims are bound to reproduction evidence before QSP decision.
-</div>
-
-</div>
-
 <pre>Stage320 → Stage321 → Stage322 → Stage323 → Stage325 → Stage326</pre>
 </div>
 
@@ -107,79 +71,51 @@ AI claims are bound to reproduction evidence before QSP decision.
 </div>
 </div>
 
-
 <div class="card">
-
 <h2>Vulnerability Intake Form</h2>
+<p>Stage326 lets you enter an AI vulnerability claim and compare it with a reproduction result before QSP decision.</p>
 
-<p>
-Stage326 introduces the intake layer for AI vulnerability claims before QSP decision.
-</p>
-
-<form>
-
+<h3>AI Claim Input</h3>
 <div class="grid">
-
-<div class="mini">
-<strong>Repository</strong><br><br>
-<input style="width:100%" placeholder="demo/repository">
-</div>
-
-<div class="mini">
-<strong>Commit</strong><br><br>
-<input style="width:100%" placeholder="abc123demo">
-</div>
-
-<div class="mini">
-<strong>File</strong><br><br>
-<input style="width:100%" placeholder="src/demo.py">
-</div>
-
-<div class="mini">
-<strong>Line Range</strong><br><br>
-<input style="width:100%" placeholder="10-20">
-</div>
-
-<div class="mini">
-<strong>Vulnerability Type</strong><br><br>
-<input style="width:100%" placeholder="unsafe-pattern">
-</div>
-
-<div class="mini">
-<strong>Risk Level</strong><br><br>
-<select style="width:100%">
-<option>low</option>
-<option>medium</option>
-<option>high</option>
-<option>critical</option>
-</select>
-</div>
-
+<div class="mini"><strong>Repository</strong><br><br><input style="width:100%" value="demo/repository"></div>
+<div class="mini"><strong>Commit</strong><br><br><input style="width:100%" value="abc123demo"></div>
+<div class="mini"><strong>File</strong><br><br><input style="width:100%" value="src/demo.py"></div>
+<div class="mini"><strong>Line Range</strong><br><br><input style="width:100%" value="10-20"></div>
+<div class="mini"><strong>Vulnerability Type</strong><br><br><input style="width:100%" value="demo-unsafe-pattern"></div>
+<div class="mini"><strong>Risk Level</strong><br><br><select style="width:100%"><option selected>medium</option><option>low</option><option>high</option><option>critical</option></select></div>
 </div>
 
 <br>
+<strong>AI Claim Summary</strong><br><br>
+<textarea style="width:100%;height:90px">AI reported a potential unsafe pattern in src/demo.py.</textarea>
 
-<strong>Claim Summary</strong><br><br>
+<h3>Reproduction Result Input</h3>
+<div class="grid">
+<div class="mini"><strong>Repository</strong><br><br><input style="width:100%" value="demo/repository"></div>
+<div class="mini"><strong>Commit</strong><br><br><input style="width:100%" value="abc123demo"></div>
+<div class="mini"><strong>File</strong><br><br><input style="width:100%" value="src/demo.py"></div>
+<div class="mini"><strong>Line Range</strong><br><br><input style="width:100%" value="10-20"></div>
+</div>
 
-<textarea style="width:100%;height:120px">
-AI reported a potential unsafe pattern.
-</textarea>
+<br>
+<strong>Reproduction Notes</strong><br><br>
+<textarea style="width:100%;height:90px">Sandbox reproduction confirmed the same repository, commit, file, and line range.</textarea>
 
-<br><br>
+<h3>Same Target Check</h3>
+<pre>Repository Match: YES
+Commit Match: YES
+File Match: YES
+Line Range Match: YES
 
-<button type="button">
-Submit Intake
-</button>
+same_target = true
+qsp_decision = ACCEPT</pre>
 
-</form>
-
+<button type="button">Submit Intake Demo</button>
 </div>
 
 <div class="card">
 <h2>Stage326 Vulnerability Evidence Intake</h2>
-<p>
-Before QSP decision, Stage326 checks whether the AI claim and reproduction result refer to the same target.
-</p>
+<p>Before QSP decision, Stage326 checks whether the AI claim and reproduction result refer to the same target.</p>
 <pre>AI Claim
 ↓
 Reproduction Result
@@ -214,7 +150,6 @@ Field names such as ai_claim, reproduction_result, evidence_files, and qsp_decis
 <h2>Public Files</h2>
 <p><a href="./schema/vulnerability-evidence-intake.schema.json">Schema JSON</a></p>
 <p><a href="./examples/demo-intake.json">Demo Intake JSON</a></p>
-
 <p><a href="./history/history.json">Audit History JSON</a></p>
 </div>
 
