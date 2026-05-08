@@ -110,7 +110,54 @@ Line Range Match: YES
 same_target = true
 qsp_decision = ACCEPT</pre>
 
-<button type="button">Submit Intake Demo</button>
+
+<button type="button" onclick="generateIntake()">
+Generate Intake JSON
+</button>
+
+<br><br>
+
+<pre id="generated-json">
+Generated intake JSON will appear here.
+</pre>
+
+<script>
+function generateIntake() {
+
+const intake = {
+  schema: "remeda.vulnerability_evidence_intake.v1",
+  stage: 326,
+
+  ai_claim: {
+    repository: "demo/repository",
+    commit: "abc123demo",
+    file: "src/demo.py",
+    line_range: "10-20",
+    vulnerability_type: "demo-unsafe-pattern",
+    risk_level: "medium",
+    claim_summary:
+      "AI reported a potential unsafe pattern in src/demo.py."
+  },
+
+  reproduction_result: {
+    repository: "demo/repository",
+    commit: "abc123demo",
+    file: "src/demo.py",
+    line_range: "10-20",
+    result: "reproduced"
+  },
+
+  qsp_decision: {
+    same_target: true,
+    decision: "accept"
+  }
+};
+
+document.getElementById("generated-json").textContent =
+  JSON.stringify(intake, null, 2);
+}
+</script>
+
 </div>
 
 <div class="card">
