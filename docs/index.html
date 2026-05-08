@@ -77,7 +77,9 @@ a{
 <body>
 <div class="container">
 
+
 <div class="card">
+
 <span class="badge">REMEDA</span>
 <span class="badge">Stage326</span>
 
@@ -87,6 +89,32 @@ a{
 Stage326 binds AI vulnerability claims to reproduction evidence
 before QSP decision.
 </p>
+
+<div class="grid">
+
+<div class="mini">
+<strong>Decision</strong><br><br>
+ACCEPT
+</div>
+
+<div class="mini">
+<strong>Trust Score</strong><br><br>
+0.96
+</div>
+
+<div class="mini">
+<strong>Status</strong><br><br>
+External Submission Ready
+</div>
+
+<div class="mini">
+<strong>Proof Type</strong><br><br>
+Public Verifiable Audit Package
+</div>
+
+</div>
+
+</div>
 </div>
 
 <div class="card">
@@ -155,6 +183,45 @@ must remain unchanged.
 
 </div>
 
+
+
+<div class="card">
+
+<h2>Verifiable Audit Report Export</h2>
+
+<p>
+Submit the report. Let others verify the proof.
+</p>
+
+<pre>
+gpg --import proofs/public-key.asc
+gpg --verify proofs/history.json.sig proofs/history.json
+</pre>
+
+<div class="grid">
+
+<div class="mini">
+<strong>Proof Files</strong><br><br>
+history.json<br>
+history.json.sig<br>
+public-key.asc
+</div>
+
+<div class="mini">
+<strong>What This Proves</strong><br><br>
+Audit report exists<br>
+History not tampered<br>
+Reproducible verification
+</div>
+
+<div class="mini">
+<strong>Submission Status</strong><br><br>
+External Submission Ready
+</div>
+
+</div>
+
+</div>
 
 <div class="card">
 <h2>Verification Submission Package</h2>
