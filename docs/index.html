@@ -81,6 +81,7 @@ a{color:#93c5fd}
 <div class="mini"><strong>Commit</strong><br><br><input id="ai_commit" style="width:100%" value="abc123demo"></div>
 <div class="mini"><strong>File</strong><br><br><input id="ai_file" style="width:100%" value="src/auth.py"></div>
 <div class="mini"><strong>Line Range</strong><br><br><input id="ai_line" style="width:100%" value="40-55"></div>
+<div class="mini"><strong>File SHA256</strong><br><br><input id="ai_sha256" style="width:100%" value="demo-file-sha256"></div>
 <div class="mini"><strong>Vulnerability Type</strong><br><br><input id="ai_type" style="width:100%" value="hardcoded-secret"></div>
 <div class="mini"><strong>Risk Level</strong><br><br>
 <select id="ai_risk" style="width:100%">
@@ -102,6 +103,7 @@ a{color:#93c5fd}
 <div class="mini"><strong>Commit</strong><br><br><input id="repro_commit" style="width:100%" value="abc123demo"></div>
 <div class="mini"><strong>File</strong><br><br><input id="repro_file" style="width:100%" value="src/auth.py"></div>
 <div class="mini"><strong>Line Range</strong><br><br><input id="repro_line" style="width:100%" value="40-55"></div>
+<div class="mini"><strong>File SHA256</strong><br><br><input id="repro_sha256" style="width:100%" value="demo-file-sha256"></div>
 </div>
 
 <br>
@@ -127,8 +129,9 @@ function generateIntake() {
   const commitMatch = getValue("ai_commit") === getValue("repro_commit");
   const fileMatch = getValue("ai_file") === getValue("repro_file");
   const lineMatch = getValue("ai_line") === getValue("repro_line");
+  const shaMatch = getValue("ai_sha256") === getValue("repro_sha256");
 
-  const sameTarget = repoMatch && commitMatch && fileMatch && lineMatch;
+  const sameTarget = repoMatch && commitMatch && fileMatch && lineMatch && shaMatch;
 
   const decision = sameTarget ? "accept" : "pending";
 
@@ -136,7 +139,7 @@ function generateIntake() {
 `Repository Match: ${repoMatch ? "YES" : "NO"}
 Commit Match: ${commitMatch ? "YES" : "NO"}
 File Match: ${fileMatch ? "YES" : "NO"}
-Line Range Match: ${lineMatch ? "YES" : "NO"}
+Line Range Match: ${lineMatch ? "YES" : "NO"}\nSHA256 Match: ${shaMatch ? "YES" : "NO"}
 
 same_target = ${sameTarget}
 qsp_decision = ${decision.toUpperCase()}`;
@@ -149,6 +152,7 @@ qsp_decision = ${decision.toUpperCase()}`;
       commit: getValue("ai_commit"),
       file: getValue("ai_file"),
       line_range: getValue("ai_line"),
+      file_sha256: getValue("ai_sha256"),
       vulnerability_type: getValue("ai_type"),
       risk_level: getValue("ai_risk"),
       claim_summary: getValue("ai_summary")
@@ -158,6 +162,7 @@ qsp_decision = ${decision.toUpperCase()}`;
       commit: getValue("repro_commit"),
       file: getValue("repro_file"),
       line_range: getValue("repro_line"),
+      file_sha256: getValue("repro_sha256"),
       result: "reproduced",
       notes: getValue("repro_notes")
     },
