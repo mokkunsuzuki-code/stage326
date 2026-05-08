@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stage326: Vulnerability Evidence Intake</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#0f172a;
+  color:#e5e7eb;
+  margin:0;
+  padding:40px;
+}
+.container{
+  max-width:960px;
+  margin:auto;
+}
+.card{
+  background:#111827;
+  border:1px solid #334155;
+  border-radius:18px;
+  padding:24px;
+  margin-bottom:20px;
+}
+.badge{
+  display:inline-block;
+  background:#1d4ed8;
+  padding:6px 12px;
+  border-radius:999px;
+  margin-right:8px;
+}
+pre{
+  background:#020617;
+  padding:16px;
+  border-radius:12px;
+  overflow-x:auto;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+}
+.mini{
+  background:#020617;
+  padding:16px;
+  border-radius:14px;
+}
+a{
+  color:#93c5fd;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="card">
+<span class="badge">REMEDA</span>
+<span class="badge">Stage326</span>
+<h1>Vulnerability Evidence Intake</h1>
+<p>
+Stage326 binds AI vulnerability claims to reproduction results before QSP decision.
+</p>
+</div>
+
+<div class="card">
+<h2>Core Question</h2>
+<pre>Does the AI claim refer to the same target as the reproduction result?</pre>
+</div>
+
+<div class="card">
+<h2>Intake Structure</h2>
+<div class="grid">
+<div class="mini"><strong>AI Claim</strong><br>What AI reported</div>
+<div class="mini"><strong>Reproduction Result</strong><br>What was reproduced</div>
+<div class="mini"><strong>Evidence Files</strong><br>Logs and proof data</div>
+<div class="mini"><strong>QSP Decision</strong><br>accept / pending / reject</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Fail-Closed Rule</h2>
+<pre>If AI Claim target != Reproduction Result target
+→ reject or pending</pre>
+</div>
+
+<div class="card">
+<h2>Public Files</h2>
+<p><a href="./schema/vulnerability-evidence-intake.schema.json">Schema JSON</a></p>
+<p><a href="./examples/demo-intake.json">Demo Intake JSON</a></p>
+</div>
+
+</div>
+</body>
+</html>

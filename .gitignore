@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
+*.log
+
+# Secrets / Keys / Signatures private material
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+id_rsa*
+id_ed25519*
+secrets/
+keys/
+private/
+.env
+
+# Core / internal implementation
+core/
+internal/
+private_core/
+app.py
+server.py
+main.py
+api.py
+
+# Local DB / runtime
+*.db
+*.sqlite
+*.sqlite3
+instance/
+data/
+
+# Raw evidence files - do not publish real vuln evidence by mistake
+evidence/
+uploads/
+reports/private/
+proofs/private/
+
+# Node / build
+node_modules/
+dist/
+build/
