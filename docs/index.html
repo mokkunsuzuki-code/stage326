@@ -77,29 +77,29 @@ a{color:#93c5fd}
 
 <h3>AI Claim Input</h3>
 <div class="grid">
-<div class="mini"><strong>Repository</strong><br><br><input style="width:100%" value="demo/repository"></div>
-<div class="mini"><strong>Commit</strong><br><br><input style="width:100%" value="abc123demo"></div>
-<div class="mini"><strong>File</strong><br><br><input style="width:100%" value="src/demo.py"></div>
-<div class="mini"><strong>Line Range</strong><br><br><input style="width:100%" value="10-20"></div>
-<div class="mini"><strong>Vulnerability Type</strong><br><br><input style="width:100%" value="demo-unsafe-pattern"></div>
-<div class="mini"><strong>Risk Level</strong><br><br><select style="width:100%"><option selected>medium</option><option>low</option><option>high</option><option>critical</option></select></div>
+<div class="mini"><strong>Repository</strong><br><br><input style="width:100%" value="demo/repository" id="ai_repository"></div>
+<div class="mini"><strong>Commit</strong><br><br><input style="width:100%" value="abc123demo" id="ai_commit"></div>
+<div class="mini"><strong>File</strong><br><br><input style="width:100%" value="src/demo.py" id="ai_file"></div>
+<div class="mini"><strong>Line Range</strong><br><br><input style="width:100%" value="10-20" id="ai_line_range"></div>
+<div class="mini"><strong>Vulnerability Type</strong><br><br><input style="width:100%" value="demo-unsafe-pattern" id="ai_vulnerability_type"></div>
+<div class="mini"><strong>Risk Level</strong><br><br><select style="width:100%" id="ai_risk_level"><option selected>medium</option><option>low</option><option>high</option><option>critical</option></select></div>
 </div>
 
 <br>
 <strong>AI Claim Summary</strong><br><br>
-<textarea style="width:100%;height:90px">AI reported a potential unsafe pattern in src/demo.py.</textarea>
+<textarea style="width:100%;height:90px" id="ai_claim_summary">AI reported a potential unsafe pattern in src/demo.py.</textarea>
 
 <h3>Reproduction Result Input</h3>
 <div class="grid">
-<div class="mini"><strong>Repository</strong><br><br><input style="width:100%" value="demo/repository"></div>
-<div class="mini"><strong>Commit</strong><br><br><input style="width:100%" value="abc123demo"></div>
-<div class="mini"><strong>File</strong><br><br><input style="width:100%" value="src/demo.py"></div>
-<div class="mini"><strong>Line Range</strong><br><br><input style="width:100%" value="10-20"></div>
+<div class="mini"><strong>Repository</strong><br><br><input style="width:100%" value="demo/repository" id="repro_repository"></div>
+<div class="mini"><strong>Commit</strong><br><br><input style="width:100%" value="abc123demo" id="repro_commit"></div>
+<div class="mini"><strong>File</strong><br><br><input style="width:100%" value="src/demo.py" id="repro_file"></div>
+<div class="mini"><strong>Line Range</strong><br><br><input style="width:100%" value="10-20" id="repro_line_range"></div>
 </div>
 
 <br>
 <strong>Reproduction Notes</strong><br><br>
-<textarea style="width:100%;height:90px">Sandbox reproduction confirmed the same repository, commit, file, and line range.</textarea>
+<textarea style="width:100%;height:90px" id="repro_notes">Sandbox reproduction confirmed the same repository, commit, file, and line range.</textarea>
 
 <h3>Same Target Check</h3>
 <pre>Repository Match: YES
@@ -115,48 +115,57 @@ qsp_decision = ACCEPT</pre>
 Generate Intake JSON
 </button>
 
+<script>
+function v(id) {
+  return document.getElementById(id).value.trim();
+}
+
+function generateIntake() {
+  const sameTarget =
+    v("ai_repository") === v("repro_repository") &&
+    v("ai_commit") === v("repro_commit") &&
+    v("ai_file") === v("repro_file") &&
+    v("ai_line_range") === v("repro_line_range");
+
+  const intake = {
+    schema: "remeda.vulnerability_evidence_intake.v1",
+    stage: 326,
+    ai_claim: {
+      repository: v("ai_repository"),
+      commit: v("ai_commit"),
+      file: v("ai_file"),
+      line_range: v("ai_line_range"),
+      vulnerability_type: v("ai_vulnerability_type"),
+      risk_level: v("ai_risk_level"),
+      claim_summary: v("ai_claim_summary")
+    },
+    reproduction_result: {
+      repository: v("repro_repository"),
+      commit: v("repro_commit"),
+      file: v("repro_file"),
+      line_range: v("repro_line_range"),
+      result: "reproduced",
+      notes: v("repro_notes")
+    },
+    qsp_decision: {
+      same_target: sameTarget,
+      decision: sameTarget ? "accept" : "pending",
+      fail_closed: true
+    }
+  };
+
+  document.getElementById("generated-json").textContent =
+    JSON.stringify(intake, null, 2);
+}
+</script>
+
 <br><br>
 
 <pre id="generated-json">
 Generated intake JSON will appear here.
 </pre>
 
-<script>
-function generateIntake() {
 
-const intake = {
-  schema: "remeda.vulnerability_evidence_intake.v1",
-  stage: 326,
-
-  ai_claim: {
-    repository: "demo/repository",
-    commit: "abc123demo",
-    file: "src/demo.py",
-    line_range: "10-20",
-    vulnerability_type: "demo-unsafe-pattern",
-    risk_level: "medium",
-    claim_summary:
-      "AI reported a potential unsafe pattern in src/demo.py."
-  },
-
-  reproduction_result: {
-    repository: "demo/repository",
-    commit: "abc123demo",
-    file: "src/demo.py",
-    line_range: "10-20",
-    result: "reproduced"
-  },
-
-  qsp_decision: {
-    same_target: true,
-    decision: "accept"
-  }
-};
-
-document.getElementById("generated-json").textContent =
-  JSON.stringify(intake, null, 2);
-}
-</script>
 
 </div>
 
