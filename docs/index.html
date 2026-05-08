@@ -25,8 +25,7 @@ a{color:#93c5fd}
 <span class="badge">Stage326</span>
 <h1>Vulnerability Evidence Intake + Verifiable Audit Submission</h1>
 <p>
-Stage326 builds on Stage320 and Stage325. It does not replace them.
-It adds AI vulnerability evidence intake before QSP decision.
+Stage326 builds on Stage320 and Stage325. It adds AI vulnerability evidence intake before QSP decision.
 </p>
 <div class="grid">
 <div class="mini"><strong>Decision</strong><br><br>ACCEPT</div>
@@ -38,18 +37,14 @@ It adds AI vulnerability evidence intake before QSP decision.
 
 <div class="card">
 <h2>Stage Evolution</h2>
-<pre>
-Stage320: Proof URL Viewer
+<pre>Stage320: Proof URL Viewer
 Stage325: Verifiable Audit Report Export
-Stage326: Vulnerability Evidence Intake
-</pre>
+Stage326: Vulnerability Evidence Intake</pre>
 </div>
 
 <div class="card">
 <h2>Stage320 Proof URL Viewer</h2>
-<p>
-AI vulnerability verification is converted into a public proof URL.
-</p>
+<p>AI vulnerability verification is converted into a public proof URL.</p>
 <div class="grid">
 <div class="mini"><strong>Integrity</strong><br><br>0.98</div>
 <div class="mini"><strong>Execution</strong><br><br>0.95</div>
@@ -61,9 +56,7 @@ AI vulnerability verification is converted into a public proof URL.
 
 <div class="card">
 <h2>Stage325 Verifiable Audit Report Export</h2>
-<p>
-Submit the report. Let others verify the proof.
-</p>
+<p>Submit the report. Let others verify the proof.</p>
 <div class="grid">
 <div class="mini"><strong>Submission Report</strong><br><br><a href="./report/report.html">Open Report</a></div>
 <div class="mini"><strong>Report JSON</strong><br><br><a href="./report/report.json">Open Report JSON</a></div>
@@ -77,31 +70,25 @@ Submit the report. Let others verify the proof.
 <p>
 Before QSP decision, Stage326 checks whether the AI claim and reproduction result refer to the same target.
 </p>
-<pre>
-AI Claim
+<pre>AI Claim
 ↓
 Reproduction Result
 ↓
 Evidence Files
 ↓
-QSP Decision
-</pre>
+QSP Decision</pre>
 </div>
 
 <div class="card">
 <h2>Core Question</h2>
-<pre>
-Does the AI claim refer to the same repository, commit, file, and line range
-as the reproduction result?
-</pre>
+<pre>Does the AI claim refer to the same repository, commit, file, and line range
+as the reproduction result?</pre>
 </div>
 
 <div class="card">
 <h2>Fail-Closed Rule</h2>
-<pre>
-If AI Claim target != Reproduction Result target
-→ reject or pending
-</pre>
+<pre>If AI Claim target != Reproduction Result target
+→ reject or pending</pre>
 </div>
 
 <div class="card">
