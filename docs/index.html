@@ -3,160 +3,101 @@
 <head>
 <meta charset="utf-8">
 <meta name="google" content="notranslate">
-<title>Stage326: Vulnerability Evidence Intake</title>
+<title>REMEDA Stage326</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#0f172a;
-  color:#e5e7eb;
-  margin:0;
-  padding:40px;
-}
-
-.container{
-  max-width:980px;
-  margin:auto;
-}
-
-.card{
-  background:#111827;
-  border:1px solid #334155;
-  border-radius:18px;
-  padding:24px;
-  margin-bottom:20px;
-}
-
-.badge{
-  display:inline-block;
-  background:#1d4ed8;
-  padding:6px 12px;
-  border-radius:999px;
-  margin-right:8px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:14px;
-}
-
-.mini{
-  background:#020617;
-  border:1px solid #1e293b;
-  border-radius:14px;
-  padding:16px;
-}
-
-pre{
-  background:#020617;
-  border-radius:12px;
-  padding:16px;
-  overflow-x:auto;
-}
-
-code{
-  color:#93c5fd;
-}
-
-.warning{
-  background:#3f1d1d;
-  border:1px solid #7f1d1d;
-  color:#fecaca;
-  padding:16px;
-  border-radius:14px;
-}
-
-a{
-  color:#93c5fd;
-}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0f172a;color:#e5e7eb;margin:0;padding:40px}
+.container{max-width:1080px;margin:auto}
+.card{background:#111827;border:1px solid #334155;border-radius:18px;padding:24px;margin-bottom:20px}
+.badge{display:inline-block;background:#1d4ed8;padding:6px 12px;border-radius:999px;margin-right:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.mini{background:#020617;border:1px solid #1e293b;border-radius:14px;padding:16px}
+pre{background:#020617;border-radius:12px;padding:16px;overflow-x:auto}
+a{color:#93c5fd}
+.warning{background:#3f1d1d;border:1px solid #7f1d1d;color:#fecaca;padding:16px;border-radius:14px}
 </style>
 </head>
-
 <body>
 <div class="container">
 
-
 <div class="card">
-
 <span class="badge">REMEDA</span>
 <span class="badge">Stage326</span>
-
-<h1>Vulnerability Evidence Intake</h1>
-
+<h1>Vulnerability Evidence Intake + Verifiable Audit Submission</h1>
 <p>
-Stage326 binds AI vulnerability claims to reproduction evidence
-before QSP decision.
+Stage326 builds on Stage320 and Stage325. It does not replace them.
+It adds AI vulnerability evidence intake before QSP decision.
 </p>
-
 <div class="grid">
-
-<div class="mini">
-<strong>Decision</strong><br><br>
-ACCEPT
+<div class="mini"><strong>Decision</strong><br><br>ACCEPT</div>
+<div class="mini"><strong>Trust Score</strong><br><br>0.96</div>
+<div class="mini"><strong>Status</strong><br><br>External Submission Ready</div>
+<div class="mini"><strong>Model</strong><br><br>AI Claim → Reproduction → QSP Decision → Proof</div>
+</div>
 </div>
 
-<div class="mini">
-<strong>Trust Score</strong><br><br>
-0.96
+<div class="card">
+<h2>Stage Evolution</h2>
+<pre>
+Stage320: Proof URL Viewer
+Stage325: Verifiable Audit Report Export
+Stage326: Vulnerability Evidence Intake
+</pre>
 </div>
 
-<div class="mini">
-<strong>Status</strong><br><br>
-External Submission Ready
+<div class="card">
+<h2>Stage320 Proof URL Viewer</h2>
+<p>
+AI vulnerability verification is converted into a public proof URL.
+</p>
+<div class="grid">
+<div class="mini"><strong>Integrity</strong><br><br>0.98</div>
+<div class="mini"><strong>Execution</strong><br><br>0.95</div>
+<div class="mini"><strong>Identity</strong><br><br>0.94</div>
+<div class="mini"><strong>Time</strong><br><br>0.97</div>
+</div>
+<p><a href="./proof/demo-ai-vulnerability.html">Open Proof Viewer</a></p>
 </div>
 
-<div class="mini">
-<strong>Proof Type</strong><br><br>
-Public Verifiable Audit Package
+<div class="card">
+<h2>Stage325 Verifiable Audit Report Export</h2>
+<p>
+Submit the report. Let others verify the proof.
+</p>
+<div class="grid">
+<div class="mini"><strong>Submission Report</strong><br><br><a href="./report/report.html">Open Report</a></div>
+<div class="mini"><strong>Report JSON</strong><br><br><a href="./report/report.json">Open Report JSON</a></div>
+<div class="mini"><strong>Report PDF</strong><br><br><a href="./report/report.pdf">Open Report PDF</a></div>
+<div class="mini"><strong>Verify Text</strong><br><br><a href="./report/verify.txt">Open Verify Text</a></div>
+</div>
 </div>
 
-</div>
-
-</div>
+<div class="card">
+<h2>Stage326 Vulnerability Evidence Intake</h2>
+<p>
+Before QSP decision, Stage326 checks whether the AI claim and reproduction result refer to the same target.
+</p>
+<pre>
+AI Claim
+↓
+Reproduction Result
+↓
+Evidence Files
+↓
+QSP Decision
+</pre>
 </div>
 
 <div class="card">
 <h2>Core Question</h2>
-
 <pre>
-Does the AI claim refer to the same target
+Does the AI claim refer to the same repository, commit, file, and line range
 as the reproduction result?
 </pre>
 </div>
 
 <div class="card">
-<h2>Intake Structure</h2>
-
-<div class="grid">
-
-<div class="mini">
-<strong>AI Claim</strong><br><br>
-What the AI reported
-</div>
-
-<div class="mini">
-<strong>Reproduction Result</strong><br><br>
-What was reproduced
-</div>
-
-<div class="mini">
-<strong>Evidence Files</strong><br><br>
-Logs and proof data
-</div>
-
-<div class="mini">
-<strong>QSP Decision</strong><br><br>
-accept / pending / reject
-</div>
-
-</div>
-</div>
-
-<div class="card">
 <h2>Fail-Closed Rule</h2>
-
 <pre>
 If AI Claim target != Reproduction Result target
 → reject or pending
@@ -164,128 +105,18 @@ If AI Claim target != Reproduction Result target
 </div>
 
 <div class="card">
-
 <h2>JSON Translation Notice</h2>
-
 <div class="warning">
 Browser auto-translation may visually translate JSON keys.
 The actual files remain valid JSON.
-
-Field names such as:
-
-<code>ai_claim</code>
-<code>reproduction_result</code>
-<code>evidence_files</code>
-<code>qsp_decision</code>
-
-must remain unchanged.
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>Verifiable Audit Report Export</h2>
-
-<p>
-Submit the report. Let others verify the proof.
-</p>
-
-<pre>
-gpg --import proofs/public-key.asc
-gpg --verify proofs/history.json.sig proofs/history.json
-</pre>
-
-<div class="grid">
-
-<div class="mini">
-<strong>Proof Files</strong><br><br>
-history.json<br>
-history.json.sig<br>
-public-key.asc
-</div>
-
-<div class="mini">
-<strong>What This Proves</strong><br><br>
-Audit report exists<br>
-History not tampered<br>
-Reproducible verification
-</div>
-
-<div class="mini">
-<strong>Submission Status</strong><br><br>
-External Submission Ready
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-<h2>Verification Submission Package</h2>
-
-<p>
-Stage326 inherits the Stage325 submission layer and adds vulnerability evidence intake.
-</p>
-
-<div class="grid">
-
-<div class="mini">
-<strong>Submission Report</strong><br><br>
-Human-readable verification report<br><br>
-<a href="./report/report.html">Open Report</a>
-</div>
-
-<div class="mini">
-<strong>Report JSON</strong><br><br>
-Machine-readable submission result<br><br>
-<a href="./report/report.json">Open Report JSON</a>
-</div>
-
-<div class="mini">
-<strong>Report PDF</strong><br><br>
-Portable submission artifact<br><br>
-<a href="./report/report.pdf">Open Report PDF</a>
-</div>
-
-<div class="mini">
-<strong>Proof Viewer</strong><br><br>
-Public proof page from Stage325<br><br>
-<a href="./proof/demo-ai-vulnerability.html">Open Proof</a>
-</div>
-
+Field names such as ai_claim, reproduction_result, evidence_files, and qsp_decision must remain unchanged.
 </div>
 </div>
 
 <div class="card">
 <h2>Public Files</h2>
-
-<p>
-<a href="./schema/vulnerability-evidence-intake.schema.json">
-Schema JSON
-</a>
-</p>
-
-<p>
-<a href="./examples/demo-intake.json">
-Demo Intake JSON
-</a>
-</p>
-
-<p>
-<a href="./report/report.html">
-Stage325 Submission Report
-</a>
-</p>
-
-<p>
-<a href="./proof/demo-ai-vulnerability.html">
-Stage325 Proof Viewer
-</a>
-</p>
-
+<p><a href="./schema/vulnerability-evidence-intake.schema.json">Schema JSON</a></p>
+<p><a href="./examples/demo-intake.json">Demo Intake JSON</a></p>
 </div>
 
 </div>
